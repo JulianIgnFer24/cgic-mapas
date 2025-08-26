@@ -1,21 +1,33 @@
-# Mapa Interactivo de Zonas de Riesgo de Incendios
+# CGIC Fire Exposure Map
 
-Este proyecto tiene como objetivo desarrollar un **mapa interactivo** que permita visualizar zonas de calor relacionadas con riesgos de incendios, basurales y otras áreas propensas a incendios. La aplicación servirá como herramienta de **prevención y planificación** para autoridades y ciudadanos interesados en la gestión ambiental.
+Open source demo web application for fire exposure mapping in Luján de Cuyo, Mendoza (Argentina). It uses Django 5 with GeoDjango, PostGIS and a MapLibre GL JS frontend. The application demonstrates weighting, classification and polygonization of synthetic layers.
 
-## Características
+## Development
 
-- Visualización de **zonas de calor** en un mapa geográfico.
-- Identificación de **basurales y áreas de riesgo** para incendios.
-- Interactividad: acercar, alejar y hacer clic en zonas específicas.
-- Capas de información personalizables (basurales, vegetación seca, reportes de incendios, etc.).
-- Potencial para integración con datos en tiempo real de incendios o reportes comunitarios.
+Requirements: Docker & docker compose.
 
-## Tecnologías
+```bash
+docker compose -f infrastructure/docker-compose.yml up --build
+```
 
-El proyecto utiliza las siguientes tecnologías:
+Then browse to <http://localhost:8000/map/>.
 
-- **Frontend**: HTML, CSS, JavaScript (con librerías como Leaflet o Mapbox).
-- **Backend**: Python (Flask/FastAPI) para servir los datos geoespaciales.
-- **Datos**: GeoJSON, shapefiles y APIs geográficas públicas.
-- **Visualización**: Heatmaps y capas interactivas.
+### Management commands
 
+```
+python manage.py ingest_osm    # stub
+python manage.py ingest_local  # stub
+python manage.py compute_index # runs analysis with synthetic data
+```
+
+### Tests
+
+Run tests with `pytest`:
+
+```
+pytest
+```
+
+## License
+
+MIT. Uses OpenStreetMap tiles (© OpenStreetMap contributors).

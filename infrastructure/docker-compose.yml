@@ -1,0 +1,24 @@
+version: '3'
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: cgic
+      POSTGRES_USER: cgic
+      POSTGRES_PASSWORD: cgic
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ../backend:/app
+    environment:
+      POSTGRES_DB: cgic
+      POSTGRES_USER: cgic
+      POSTGRES_PASSWORD: cgic
+      POSTGRES_HOST: db
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
