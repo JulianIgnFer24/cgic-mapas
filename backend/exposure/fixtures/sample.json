@@ -1,0 +1,23 @@
+[
+  {
+    "model": "exposure.weight",
+    "pk": 1,
+    "fields": {"layer": null, "profile": "default", "value": 0.5, "is_active": true}
+  },
+  {
+    "model": "exposure.exposurepolygon",
+    "pk": 1,
+    "fields": {
+      "geom": "MULTIPOLYGON(((-68.9 -33.05,-68.89 -33.05,-68.89 -33.04,-68.9 -33.04,-68.9 -33.05)))",
+      "area_ha": 1.0,
+      "centroid": "POINT(-68.895 -33.045)",
+      "score": 0.5,
+      "category": "medium",
+      "profile": "default",
+      "admin_area": "",
+      "barrio": "",
+      "nbi": null,
+      "computed_at": "2024-01-01T00:00:00Z"
+    }
+  }
+]
